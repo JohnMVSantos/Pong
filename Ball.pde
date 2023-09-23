@@ -15,6 +15,7 @@ class Ball {
     xCircle = width/2;
     yCircle = height/2;
     radius = 31.5;
+    xSpeed = 10.8;
     ySpeed = 7.2;
     xDirection = 1;
     yDirection = 1;
