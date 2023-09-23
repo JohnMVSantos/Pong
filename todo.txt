@@ -1,0 +1,25 @@
+
+BugFixes
+--------
+1) Ball Glitches often when hitting the paddle.
+2) The slam powerup is not correct, it slams back and forth placing a disadvantage to both players.
+
+Additional Features
+-------------------
+
+1) Add Start Menu
+    1.1) Start game
+    1.2) Help
+    1.3) Difficulty include speed
+    1.4) Window Size
+    1.5) Max Score
+
+2) Add quit functionality
+3) Implement FreezePaddle powerup
+4) Implement AI competitor
+
+
+Documentation
+--------------
+1) Update ReadMe showing instructions and description.
+2) Show video demonstration embedded in the ReadMe.
