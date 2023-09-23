@@ -1,7 +1,7 @@
 
 BugFixes
 --------
-1) Ball Glitches often when hitting the paddle.
+1) Ball glitches often when hitting the paddle.
 2) The slam powerup is not correct, it slams back and forth placing a disadvantage to both players.
 
 Additional Features
@@ -11,8 +11,10 @@ Additional Features
     1.1) Start game
     1.2) Help
     1.3) Difficulty include speed
-    1.4) Window Size
-    1.5) Max Score
+    1.4) Window size
+    1.5) Max score
+    1.6) Number of players per side (max 3), but can be flexible, one player on one side, but 3 on the other. 
+    1.7) Multiplayer or offline mode (Prioritize for now). 
 
 2) Add quit functionality
 3) Implement FreezePaddle powerup
@@ -23,3 +25,9 @@ Documentation
 --------------
 1) Update ReadMe showing instructions and description.
 2) Show video demonstration embedded in the ReadMe.
+
+
+Final Release
+-------------
+1) Maybe as an APP in the playstore or appstore.
+2) Adds for revenue?
