@@ -1,56 +1,69 @@
 class Paddle {
-  
-  float xRectangle, yRectangle;
-  float rectSpeed;
-  float rect1Direction, rect2Direction;
-  float heightRectangle, widthRectangle;
+   
+  float x, y;
+  float speed = 15;
+  int direction = 0;
+  float heightPaddle, widthPaddle;
   color colour;
   
-  Paddle(float xRect, float yRect, float heightRect, float widthRect, float rectspeed) {
-    xRectangle=xRect;
-    yRectangle=yRect;
-    heightRectangle=heightRect;
-    widthRectangle=widthRect;
-    rectSpeed=rectspeed;
-    rect1Direction=0;
-    rect2Direction=rect1Direction;
+  Paddle(float xPos, float yPos, float h, float w, color c) {
+    /** 
+     * Initializes the paddle object.
+     *
+     * @param {float} xPos - The x position in pixels of the paddle's center. 
+     * @param {float} yPos - The y position in pixels of the paddle's center.
+     * @param {float} h - The height of the paddle in pixels.
+     * @param {float} w - The width of the paddle in pixels.
+     * @param {tuple} c - The color of the paddle in RGB format.
+     */
+    x = xPos;
+    y = yPos;
+    
+    heightPaddle = h;
+    widthPaddle = w;
+    colour = c;
   }
-
-  void PongControls() {
-    if (keyPressed && (key=='w'||key=='s')) {
-      yRectangle = yRectangle + (rectSpeed * rect1Direction);
-    } 
-
-    if (keyPressed && (keyCode==UP||keyCode==DOWN)) {
-      yRectangle = yRectangle + (rectSpeed * rect2Direction);
-    }
-  }
-
-  void PongPaddles() {
-    if (Paddles[0].overlaps(ball) || Paddles[1].overlaps(ball)) {
+  
+  void display() {
+    /**
+     * Displays the paddle on the screen.
+     */
+    if (hitsBall()) {
       delay(5);
       strokeWeight(10);
-      stroke(255);
+      stroke(255); 
     } else {
-      strokeWeight(2);
+      strokeWeight(2); 
     }
+    
     rectMode(CENTER);
     fill(colour);
-    rect(xRectangle, yRectangle, widthRectangle, heightRectangle);
+    rect(x, y, widthPaddle, heightPaddle);
   }
   
-  boolean overlaps (Ball thisBall) {
-    float distance = dist(xRectangle, yRectangle, thisBall.xCircle, thisBall.yCircle);
-    if ((distance<((widthRectangle/2)+thisBall.radius))) {
-      return true;
-    } 
-    return false;
-  }
-  
-  boolean inside (Ball thisBall) {
-    if (((thisBall.yCircle-thisBall.radius)>(yRectangle-(heightRectangle/2))) && ((thisBall.yCircle+thisBall.radius)<(yRectangle+(heightRectangle/2)))) {
-      return true;
-    } 
+  boolean hitsBall() {
+    /**
+     * Condition to check if the paddle hits the paddle.
+     * Check if the ball is within the paddle's height constraints.
+     * Check if the ball is directly infront of the paddle.
+     *
+     * @returns {boolean} True if the paddle hits the ball. False otherwise.
+     */
+     
+     if ((ball.y + ball.radius > y - heightPaddle / 2) && 
+         (ball.y - ball.radius < y + heightPaddle / 2)) {
+       
+       // If the ball is behind the paddle, then ball was not intersected by the paddle.
+       if (((x > width / 2) && (ball.x > x)) || ((x < width /2) && (ball.x < x))) {
+         return false;
+       }
+           
+       // Calculating the lateral distance to check ball to paddle contact only.
+       float distance = dist(x, ball.y, ball.x, ball.y);
+       if (distance <= (widthPaddle / 2 + ball.radius)) {
+         return true;
+       } 
+     }
     return false;
   }
 }
