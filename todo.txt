@@ -1,35 +1,10 @@
-
-BugFixes
---------
-1) Ball glitches often when hitting the paddle.
-2) The slam powerup is not correct, it slams back and forth placing a disadvantage to both players.
-3) Need a handle resize method especially for the paddles.
-
 Additional Features
 -------------------
-
-1) Add Start Menu
-    1.1) Start game -> Players (1 with AI. or 2). Max Score -> Difficulty selection
-    1.2) Help
+Add help section
+Need a handle resize method especially for the paddles.
 	
+New private branch...
 paddle on the right is controlled by the AI.
-Easy
------
-ball speed : 7
-paddle speed : 20
-
-Medium
-------
-ball speed : 10.80
-paddle speed : 16.00
-
-Hard
-----
-ball speed : 15.00
-paddle speed : 15.00
-
-3) Implement FreezePaddle powerup
-4) Implement AI competitor
 
 
 Documentation
@@ -37,8 +12,14 @@ Documentation
 1) Update ReadMe showing instructions and description.
 2) Show video demonstration embedded in the ReadMe.
 
+BugFixes
+--------
+1) Ball glitches often when hitting the paddle.
+2) The slam powerup is not correct, it slams back and forth placing a disadvantage to both players.
 
 Final Release
 -------------
-1) Maybe as an APP in the playstore or appstore, etc.
-2) Multiplayer?
+1) Implement FreezePaddle powerup
+2) Selection of paddle for one player. Currently always assigns the left paddle.
+3) Maybe as an APP in the playstore or appstore, etc.
+4) Multiplayer?

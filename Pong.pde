@@ -72,8 +72,8 @@ boolean hardButtonOver = false; // Condition to check if the mouse hovers over t
 
 void initSettings() {
  /**
-  * Initialize game settings.
-  */
+* Initialize game settings.
+*/
  screenState = 0;
  players = 1;
  redPoints = 0;
@@ -81,7 +81,7 @@ void initSettings() {
  maxPoints = 1;
  textsSize = 35;
  textMargin = 50;
-  
+
  // Ball Properties
  ballSpeed = 10.80;
  ballRadius = 0.02 * width;
@@ -130,6 +130,65 @@ void initSettings() {
  
  hardButtonX = width / 2 - buttonSize;
  hardButtonY = height / 4 - buttonSize / 2 + 3 * buttonMargin + buttonStartPlacement;
+}
+
+void resizeEvent() {
+  /**
+   * Allow dynamic resizing of the elements 
+   * if the window size changes.
+   */
+  
+  textsSize = int(0.02 * width);
+  textMargin = 0.03 * width;
+  
+  // Ball Properties
+  ballRadius = 0.02 * width;
+  powerupRadius = 0.01 * width;
+  
+  // Paddle Properties
+  paddleWidth = 0.015 * width;
+  paddleHeight = 0.1 * height;
+  paddleMargin = 0.02 * width;
+  
+  paddles[0].x = paddleMargin;
+  paddles[1].x = width - paddles[0].x;
+  
+  // Menu Properties
+  buttonMargin = 0.03 * width;
+  buttonStartPlacement = 2 * textMargin;
+  buttonSize = 0.05 * width;
+  buttonWidth = 2 * buttonSize;
+  buttonHeight = buttonSize / 2;
+   
+  // Main Menu
+  startButtonX = width / 2 - buttonSize;
+  startButtonY = height / 4 - buttonSize / 2 + buttonMargin + buttonStartPlacement;
+   
+  helpButtonX = width / 2 - buttonSize;
+  helpButtonY = height / 4 - buttonSize / 2 + 2 * buttonMargin + buttonStartPlacement;
+   
+  // Player Selection
+  onePlayerButtonX = startButtonX;
+  onePlayerButtonY = startButtonY;
+   
+  twoPlayerButtonX = helpButtonX;
+  twoPlayerButtonY = helpButtonY;
+   
+  pointIncrementButtonX = width / 2 + buttonWidth / 2 - 0.25 * buttonWidth;
+  pointIncrementButtonY = twoPlayerButtonY + buttonMargin;
+   
+  pointDecrementButtonX = pointIncrementButtonX;
+  pointDecrementButtonY = pointIncrementButtonY + 0.50 * buttonMargin;
+   
+  // Difficulty Selection
+  easyButtonX = startButtonX;
+  easyButtonY = startButtonY;
+   
+  normalButtonX = helpButtonX;
+  normalButtonY = helpButtonY;
+   
+  hardButtonX = width / 2 - buttonSize;
+  hardButtonY = height / 4 - buttonSize / 2 + 3 * buttonMargin + buttonStartPlacement;
 }
 
 void reset() {
@@ -389,10 +448,10 @@ void mousePressed() {
    * Detect mouse presses to determine button clicks.
    */
   if (startButtonOver) {
-   screenState = 2; // Transition to player selection.
+    screenState = 2; // Transition to player selection.
   } else if (twoPlayerButtonOver) {
     players = 2;
-   screenState = 1; // Transition to the game screen. 
+    screenState = 3; // Transition to the difficulty screen. 
   } else if (onePlayerButtonOver) {
     players = 1;
     screenState = 3; // Transition to the difficulty selection.
@@ -463,14 +522,14 @@ void setup() {
   //Paddle properties (x, y, height, width, RGB).
   paddles[0] = new Paddle(
                     paddleMargin, 
-                    height/2, 
+                    height / 2, 
                     paddleHeight, 
                     paddleWidth, 
                     color(255, 0, 0)
                );
   paddles[1] = new Paddle(
                     width - paddles[0].x, 
-                    height/2, 
+                    height / 2, 
                     paddleHeight, 
                     paddleWidth, 
                     color(0, 0, 255)
@@ -757,7 +816,12 @@ void drawDifficultySelection() {
 }
 
 void drawHelpScreen() {
+  /**
+   * Drawing the help screen to provide user instructions.
+   */
+   
   
+   
   
 }
 
@@ -765,6 +829,8 @@ void draw() {
   /**
    * Drawing loop to update the display contents.
    */
+  resizeEvent();
+  
   if (screenState == 0) {
     drawMenu(); 
   } else if (screenState == 1) {
