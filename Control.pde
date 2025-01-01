@@ -15,9 +15,13 @@ class Control {
         paddles[0].y += paddles[0].speed * paddles[0].direction;
       }
       
-      if (keyCode==UP||keyCode==DOWN) {
+      if (players > 1 && (keyCode == UP || keyCode == DOWN)) {
         paddles[1].y += paddles[1].speed * paddles[1].direction;
       }
+    }
+    
+    if (players == 1) {
+      paddles[1].y = ball.y;
     }
   }
   

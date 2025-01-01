@@ -60,15 +60,15 @@ class SlamBall extends PowerUp {
         ball.xSpeed = ballSpeed;
         ball.ySpeed = ballSpeed;
         active = false;
-        ball.x = width / 2;
-        ball.y = height / 2;
+        //ball.x = width / 2;
+        //ball.y = height / 2;
       }
       else if (direction < 0 && (ball.x + ball.radius < 0 || paddles[0].hitsBall())) {
         ball.xSpeed = ballSpeed;
         ball.ySpeed = ballSpeed;
         active = false;
-        ball.x = width / 2;
-        ball.y = height / 2;
+        //ball.x = width / 2;
+        //ball.y = height / 2;
       }    
     }
   }
