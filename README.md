@@ -27,7 +27,7 @@ the time that suited my interests.
 Until recently around the end of 2024, I realized I had to finish my first 
 project as it did not settle right with me to have unfinished projects. I
 did not like how the code was written and how disorganized it was, so I made a 
-major clean up to the source code. Only until I was satified with the current
+major clean up to the source code. Only until I was satisfied with the current
 state of the code, I then moved on to fixing some bugs and adding features such as
 a start menu and user specifications. 
 
