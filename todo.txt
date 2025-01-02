@@ -1,16 +1,6 @@
-Additional Features
--------------------
-Add help section
-Need a handle resize method especially for the paddles.
-	
-New private branch...
-paddle on the right is controlled by the AI.
-
-
 Documentation
 --------------
-1) Update ReadMe showing instructions and description.
-2) Show video demonstration embedded in the ReadMe.
+1) Show video demonstration embedded in the ReadMe.
 
 BugFixes
 --------
@@ -21,5 +11,6 @@ Final Release
 -------------
 1) Implement FreezePaddle powerup
 2) Selection of paddle for one player. Currently always assigns the left paddle.
-3) Maybe as an APP in the playstore or appstore, etc.
-4) Multiplayer?
+3) Proper help section.
+4) Maybe as an APP in the playstore or appstore, etc.
+5) Multiplayer?

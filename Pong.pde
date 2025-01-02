@@ -2,7 +2,6 @@ final int MENUSCREEN = 0;
 final int GAMESCREEN = 1;
 final int PLAYERSCREEN = 2;
 final int DIFFICULTYSCREEN = 3;
-final int HELPSCREEN = 4;
 
 int screenState;
 int players;
@@ -488,8 +487,6 @@ void mousePressed() {
     paddles[1].speed = paddleSpeed;
     
     screenState = 1; // Transition to the game screen.
-  } else if (helpButtonOver) {
-   screenState = 4; // Transition to the help screen. 
   } else if (pointIncrementButtonOver) {
     maxPoints += 1; 
   } else if (pointDecrementButtonOver) {
@@ -667,6 +664,10 @@ void drawMenu() {
       helpButtonY + buttonMargin / 2
    );
    
+   if (helpButtonOver) {
+     drawHelpScreen(); 
+   }
+   
    textSize(textsSize);
 }
 
@@ -819,10 +820,21 @@ void drawHelpScreen() {
   /**
    * Drawing the help screen to provide user instructions.
    */
+   stroke(255);
+   rect(width / 2, height / 2, 0.45 * width, 0.20 * height);
    
-  
+   fill(0);
+   String instructions = "Use 'w' and 's' keys to move player 1 (left). Use up and down arrow keys to move player 2 (right). ";
+   instructions += "\nCan only specify either single player or two player modes. Single player plays with an AI paddle (right) ";
+   instructions += "\nwith varying levels of difficulty. There are three levels of difficulty 'easy', 'normal', and 'hard'. ";
+   instructions += "\nDifficult levels have a faster ball speed and a slower paddle speed. The slamball powerup indicated by ";
+   instructions += "\nthe fire icon gives the player an advantage by slamming the ball towards the opponent.";
    
-  
+   text(
+      instructions, 
+      width / 2 + 0.50 * textMargin, 
+      height / 2 + textMargin
+   );
 }
 
 void draw() {
