@@ -1,7 +1,3 @@
-Documentation
---------------
-1) Show video demonstration embedded in the ReadMe.
-
 BugFixes
 --------
 1) Ball glitches often when hitting the paddle.

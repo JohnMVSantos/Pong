@@ -37,6 +37,8 @@ software, persistance and motivation is key. For any given project, there are
 always ways to improve, to add, to change that is only limited by one's own
 motivation and determination. 
 
+[Video Demonstration](https://youtu.be/8K6okzg7It0)
+
 # Instructions
 
 Processing can be installed [here](https://processing.org/download). By cloning
